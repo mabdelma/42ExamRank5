@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ASpell.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabdelma <mabdelma@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/28 20:06:14 by mabdelma          #+#    #+#             */
+/*   Updated: 2024/04/28 20:06:15 by mabdelma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ASpell.hpp"
+
+ASpell::ASpell(std::string name, std::string effects) : _name(name), _effects(effects)
+{
+
+}
+
+ASpell & ASpell::operator=(ASpell const & rhs)
+{
+	_name = rhs.getName();
+	_effects = rhs.getEffects();
+	return *this;
+}
+
+ASpell::ASpell(ASpell const & obj)
+{
+	*this = obj;
+}
+
+ASpell::~ASpell()
+{
+
+}
+
+std::string ASpell::getName() const
+{
+	return (_name);
+}
+
+std::string ASpell::getEffects() const
+{
+	return (_effects);
+}
+
+void ASpell::launch(ATarget const & target) const
+{
+	target.getHitBySpell(*this);
+}
